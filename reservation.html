@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Réservation Taxi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Style général de la page */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('https://static.ffx.io/images/$zoom_0.167%2C$multiply_0.7725%2C$ratio_1.5%2C$width_756%2C$x_0%2C$y_0/t_crop_custom/q_86%2Cf_auto/de21bc7476133ff38fc207ced147c5135f525147') no-repeat center center;
+    background-size: 100%; /* Zoom modéré */
+    opacity: 0.8;           /* Transparence */
+    z-index: -1;
+}
+
+    /* Conteneur du form */
+    form {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 20px;
+      width: 380px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+      backdrop-filter: blur(2px);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Titre du form*/
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 26px;
+      color: #222;
+    }
+
+    /* Champs de saisie */
+    input, select {
+      display: block;
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, select:focus {
+      border-color: #FFD700;
+      outline: none;
+    }
+
+    /*Boutons*/
+    button {
+      background-color: #FFD700;
+      color: #000;
+      border: none;
+      padding: 14px;
+      width: 100%;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #000;
+      color: #FFD700;
+    }
+
+    /*Champ désactivé (prix estimé)*/
+    input:disabled {
+      background-color: #f5f5f5;
+      color: #555;
+      font-style: italic;
+    }
+
+    /* Responsive Mobile */
+    @media screen and (max-width: 480px) {
+      form {
+        width: 90%;
+        padding: 30px 20px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <form id="reservationForm">
+    <h2>Réserver un Taxi</h2>
+
+    <input type="text" id="depart" placeholder="Lieu de départ" required>
+    <input type="text" id="arrivee" placeholder="Lieu d'arrivée" required>
+    <input type="datetime-local" id="horaire" required>
+    <input type="text" id="prixEstime" placeholder="Prix estimé (dt)" disabled>
+
+    <button type="button" onclick="estimerPrix()">Estimer le prix</button>
+    <button type="submit">Confirmer la réservation</button>
+  </form>
+  <!-- Barre en haut : notifications + paramètres -->
+    <div class="top-bar">
+        <i class="fas fa-bell" title="Notifications"></i>
+        <i class="fas fa-cog" title="Paramètres"></i>
+    </div>
+
+     <!-- Bulle de chatbot en bas -->
+    <div class="chatbot-bubble" onclick="alert('👋 Bonjour ! Comment puis-je vous aider ?')">
+  💬 Chatbot
+    </div>
+
+  <script>
+    function estimerPrix() {
+      const depart = document.getElementById('depart').value;
+      const arrivee = document.getElementById('arrivee').value;
+      const horaire = document.getElementById('horaire').value;
+
+      if (depart && arrivee && horaire) {
+        const prixEstime = Math.floor(Math.random() * 50) + 10; // entre 10dt et 60dt
+        document.getElementById('prixEstime').value = prixEstime + ' dt';
+      } else {
+        alert('Veuillez remplir tous les champs.');
+      }
+    }
+
+    document.getElementById('reservationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('🚖 Réservation confirmée !');
+    });
+  </script>
+</body>
+</html>

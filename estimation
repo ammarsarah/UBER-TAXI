@@ -1,0 +1,20 @@
+<script>
+function estimerPrix() {
+  const depart = document.getElementById('depart').value;
+  const arrivee = document.getElementById('arrivee').value;
+  const horaire = document.getElementById('horaire').value;
+
+  if (depart && arrivee && horaire) {
+    // Simulation d'estimation de prix (entre 10 et 60 dt)
+    const prixEstime = Math.floor(Math.random() * 50) + 10;
+    document.getElementById('prixEstime').value = prixEstime + 'dt';
+  } else {
+    alert('Veuillez remplir tous les champs.');
+  }
+}
+
+document.getElementById('reservationForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  alert('🚖 Réservation confirmée !');
+});
+</script>

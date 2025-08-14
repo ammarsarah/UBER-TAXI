@@ -1,0 +1,153 @@
+/* Fond général avec image légèrement zoomée et transparente */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Image d’arrière-plan zoom modéré et transparence*/
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('https://static.ffx.io/images/$zoom_0.167%2C$multiply_0.7725%2C$ratio_1.5%2C$width_756%2C$x_0%2C$y_0/t_crop_custom/q_86%2Cf_auto/de21bc7476133ff38fc207ced147c5135f525147') no-repeat center center;
+    background-size: 110%; /* Zoom modéré */
+    opacity: 0.8;           /* Transparence */
+    z-index: -1;
+}
+
+/* Formulaire register & login */
+form {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 38px;
+    border-radius: 15px;
+    width: 350px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 1;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 35px;
+    margin-right: 35px;
+    font-size: 24px;
+    color: #222;
+}
+
+
+input {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #FFD700;
+    color: #000;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #000;
+    color: #FFD700;
+}
+
+/*Page d'accueil*/
+.home-container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    max-width: 500px;
+    position: relative;
+    z-index: 1;
+}
+
+.logo-box {
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+.buttons button {
+    margin: 10px 5px;
+}
+
+/*Responsive design */
+@media screen and (max-width: 400px) {
+    form, .home-container {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+input:disabled {
+    background-color: #eee;
+    color: #555;
+    font-style: italic;
+  }
+/* --- Barres fixes haut et bas --- */
+.top-bar {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+  z-index: 999;
+}
+
+.top-bar i {
+  font-size: 22px;
+  color: #333;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.top-bar i:hover {
+  transform: scale(1.2);
+}
+
+/* --- Chatbot bubble en bas --- */
+.chatbot-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #FFD700;
+  color: black;
+  padding: 12px 16px;
+  border-radius: 25px;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 999;
+  transition: background 0.3s;
+}
+
+.chatbot-bubble:hover {
+  background-color: #000;
+  color: #FFD700;
+}
+
+  

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="css2/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <h2>Inscription</h2>
+    <form action="php2/register.php" method="POST">
+        <input type="text" name="nom" placeholder="Nom" required>
+        <input type="text" name="prenom" placeholder="Prénom" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="tel" placeholder="Téléphone" required>
+        <input type="password" name="password" placeholder="Mot de passe" required>
+        <button type="submit">S'inscrire</button>
+    </form>
+    <!-- Barre en haut : notifications + paramètres -->
+    <div class="top-bar">
+        <i class="fas fa-bell" title="Notifications"></i>
+        <i class="fas fa-cog" title="Paramètres"></i>
+    </div>
+
+     <!-- Bulle de chatbot en bas -->
+    <div class="chatbot-bubble" onclick="alert('👋 Bonjour ! Comment puis-je vous aider ?')">
+  💬 Chatbot
+    </div>
+</body>
+</html>
