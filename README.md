@@ -25,6 +25,7 @@ Backend : PHP / MySQL
 Versioning : Git / GitHub
 
 Méthodologie : Scrum Agile
+
 📌 Objectif du projet
 
 Offrir une solution digitale intuitive qui facilite la mise en relation entre les passagers et les chauffeurs, tout en optimisant la gestion des trajets et paiements.
